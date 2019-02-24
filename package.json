@@ -2,19 +2,25 @@
   "name": "redis-cdv",
   "version": "0.1.0",
   "main": "main.js",
-  "license": "Apache2.0",
+  "license": "Apache-2.0",
   "repository": "christophertrml/redisCDV",
   "scripts": {
-    "start": "electron -r babel-register ."
+    "prebuild": "node -r dotenv/config",
+    "start": "npm run prebuild && electron -r @babel/register .",
+    "test": "jest --setupFiles dotenv/config"
   },
   "dependencies": {
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "babel-register": "^6.3.13",
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "dotenv": "^6.2.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
   "devDependencies": {
-    "electron": "^1.4.3"
+    "@babel/preset-env": "^7.3.1",
+    "electron": "^1.4.3",
+    "jest": "^24.1.0"
   }
 }
